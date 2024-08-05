@@ -1,4 +1,5 @@
 import './App.css';
+import img1 from './images/berx.jpg';
 import React, { Component } from 'react';
 class App extends Component {
   state = {
@@ -8,17 +9,28 @@ class App extends Component {
   onFileChange = event => {
     this.setState({ selectedFile: event.target.files[0] })
   }
-  onFileUpload = () => {
+  onFileUpload = async () => {
+    if (!this.state.selectedFile) {
+      alert("please select a file first.");
+      return;
+    }
     const formData = new FormData();
-    formData.append(
-      "demo file",
-      this.state.selectedFile,
-      this.state.selectedFile.name
-    )
+    formData.append('fileName',this.state.selectedFileName.name);
+    form
     console.log(formData);
     this.setState({ selectedFile: null })
     this.setState({ fileUploadedSuccessfully: true });
   }
+
+ render() {
+  return (
+    <div>
+
+      <img src={img1} alt='bLogo'/>
+    </div>
+  );
+ }
+  
   fileData = () => {
     if (this.state.selectedFile) {
       return (
@@ -66,4 +78,6 @@ class App extends Component {
     )
   }
 }
+
+
 export default App;

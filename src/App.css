@@ -5,6 +5,11 @@ body {
   margin: 10;
   padding: 0;
 }
+
+/* Image Styles */
+img {
+  height: 300px
+}
 /* Container styles */
 .container {
   max-width: 800px;
